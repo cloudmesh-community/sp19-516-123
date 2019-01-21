@@ -5,5 +5,5 @@
 
 ## Week-2 (1/14 - 1/20)
 * Installed pyenv and Pycharm on Guest
-* Configured Pycharm to use python 3.7.1 virtual env
+* Configured Pycharm to use python 3.7.1 virtualenv
 * Review python frm lecture notes thru OpenCV
