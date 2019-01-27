@@ -6,3 +6,8 @@ owner:
   community: "i516"
   semester: sp19
   profile: "https://github.com/mallik3006"
+section:
+  - title: XML 
+    keyword: XML
+    url: https://https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python-data.md
+    github: https://github.com/cloudmesh-community/book/pull/315
