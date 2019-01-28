@@ -10,5 +10,5 @@
 
 ## Week-3 (1/21 - 1/27)
 * Updated XML section under Python chapter and the pull request has been approved
-* Read the chapter 6.Data Center from Epub
-* Read the chapter 7.Architectures fro  Epub
+* Read the chapter on Data Center from Epub
+* Read the chapter on Architectures from Epub
