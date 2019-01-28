@@ -6,4 +6,9 @@
 ## Week-2 (1/14 - 1/20)
 * Installed pyenv and Pycharm on Guest
 * Configured Pycharm to use python 3.7.1 virtualenv
-* Review python frm lecture notes thru OpenCV
+* Reviewed python from lecture notes thru OpenCV
+
+## Week-3 (1/21 - 1/27)
+* Updated XML section under Python chapter and the pull request has been approved
+* Read the chapter 6.Data Center from Epub
+* Read the chapter 7.Architectures fro  Epub
