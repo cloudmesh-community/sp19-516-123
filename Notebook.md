@@ -8,7 +8,7 @@
 # Week-4 (1/28 - 2/03)
 
 * Read the chapter on REST and OpenAPI specifications.
-* Succesfully executed the demo RESt service on my guest ubuntu 18.04 machine
+* Succesfully executed the demo REST service to display the cpu information on my guest ubuntu 18.04 machine
 * Read the chapter on Virtualization from the handbook
 * Selected the section - AI with REST (Issue #243)
 
