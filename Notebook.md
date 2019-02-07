@@ -2,7 +2,7 @@
 
 * Read the chapter on IaaS from the handbook.
 * Created an AWS cloud account, started and stopped an instance on AWS EC2 VM.
-* Installed the the updated Python 3.7.2 on my guest machine with pyenv.
+* Installed Python 3.7.2 on my guest machine with pyenv.
 * Working on the section (Issue #243) - AI with REST.
 * Reading about OpenStack and Python Libcloud.
 
