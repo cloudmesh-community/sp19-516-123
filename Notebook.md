@@ -1,3 +1,17 @@
+# Week-5 (2/04 - 2/11)
+
+* Read the chapter on IaaS from the handbook.
+* Created an AWS cloud account, started and stopped an instance on AWS EC2 VM.
+* Working on the section (Issue #243) - AI with REST
+* Reading about OpenStack and Python Libcloud 
+
+# Week-4 (1/28 - 2/03)
+
+* Read the chapter on REST and OpenAPI specifications.
+* Succesfully executed the demo RESt service on my guest ubuntu 18.04 machine
+* Read the chapter on Virtualization from the handbook
+* Selected the section - AI with REST (Issue #243)
+
 # Week-3 (1/21 - 1/27)
 
 * Updated XML section under Python chapter and the pull request has been approved
