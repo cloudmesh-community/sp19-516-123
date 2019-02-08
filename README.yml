@@ -11,3 +11,12 @@ section:
     keyword: XML
     url: https://https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python-data.md
     github: https://github.com/cloudmesh-community/book/pull/315
+  - title: OpenFaaS
+    keyword:
+    github:
+    issue: https://github.com/cloudmesh-community/book/issues/246
+chapter:
+  - title: Artificial Intelligence with REST
+    url:
+    github:
+    issue: https://github.com/cloudmesh-community/book/issues/302
