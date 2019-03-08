@@ -21,6 +21,6 @@ chapter:
     url:
     github:
     issue: https://github.com/cloudmesh-community/book/issues/243
-docopt for azure storage:
-  - title: Docopt for Azure Storage
-    url: https://github.com/cloudmesh-community/sp19-516-123/blob/master/project-code/docopt
+Project:
+  - title: Cloud service file management with Azure Storage
+    docopt url: https://github.com/cloudmesh-community/sp19-516-123/blob/master/project-code/docopt
