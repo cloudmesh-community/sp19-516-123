@@ -1,0 +1,69 @@
+        """
+        ::
+
+          Usage:
+                storage [--storage=SERVICE] put CONTAINER FILENAME
+                storage [--storage=SERVICE] get CONTAINER FILENAME
+                storage [--storage=SERVICE] delete CONTAINER FILENAME
+                storage [--storage=SERVICE] list CONTAINER
+                storage [--storage=SERVICE] info CONTAINER FILENAME
+                storage [--storage=SERVICE] create CONTAINER FILENAME
+                storage [--storage=SERVICE] createdir CONTAINER
+                storage [--storage=SERVICE] listdir
+                storage [--storage=SERVICE] deletedir CONTAINER
+
+
+          This command does some useful things.
+
+          Arguments:
+              CONTAINER  a CONTAINER name
+              FILENAME   a BLOB name
+
+          Options:
+              --storage=SERVICE  specify the cloud service name like aws or azure or box or google
+
+          Description:
+                commands used to upload, download, list files on different cloud storage services.
+
+                storage put [options..]
+                    Uploads the file specified in the filename to the container name specified
+                    on the specified cloud.
+
+                storage get [options..]
+                    Downloads the file specified in the filename from the container name specified
+                    on the specified cloud to the local path.
+
+                storage delete [options..]
+                    Deletes the file specified in the filename from the container name specified
+                    on the specified cloud.
+
+                storage list [options..]
+                    lists all the files from the container name specified on the specified cloud.
+
+                storage info [options..]
+                    returns the properties of the filename specified from the container name specified
+                    on the specified cloud.
+
+                storage create [options..]
+                    creates the file in the container name specified on the specified cloud.
+
+                storage createdir [options..]
+                    creates the container with the container name specified on the specified cloud.
+
+                storage listdir [options..]
+                    lists all the containers on the specified cloud.
+
+                storage deletedir [options..]
+                    deletes the container with the container name specified on the specified cloud.
+
+
+          Example:
+            set storage=azure
+            storage put CONTAINER FILENAME
+
+            is the same as 
+
+            storage --storage=azure put CONTAINER FILENAME
+
+
+        """
