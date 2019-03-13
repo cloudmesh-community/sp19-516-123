@@ -4,13 +4,13 @@
           Usage:
                 storage [--storage=SERVICE] put CONTAINER FILENAME SOURCEDIR
                 storage [--storage=SERVICE] get CONTAINER FILENAME DESTDIR
-                storage [--storage=SERVICE] delete CONTAINER FILENAME
-                storage [--storage=SERVICE] list CONTAINER
+                storage [--storage=SERVICE] delete file CONTAINER FILENAME
+                storage [--storage=SERVICE] list file CONTAINER
                 storage [--storage=SERVICE] info CONTAINER FILENAME
-                storage [--storage=SERVICE] create CONTAINER FILENAME
-                storage [--storage=SERVICE] createdir CONTAINER
-                storage [--storage=SERVICE] listdir
-                storage [--storage=SERVICE] deletedir CONTAINER
+                storage [--storage=SERVICE] create file CONTAINER FILENAME
+                storage [--storage=SERVICE] create dir CONTAINER
+                storage [--storage=SERVICE] list dir
+                storage [--storage=SERVICE] delete dir CONTAINER
 
 
           This command does some useful things.
@@ -35,24 +35,24 @@
                     Downloads the file specified in the filename from the container name specified
                     on the specified cloud to the DESTDIR.
 
-                storage delete [options..]
+                storage delete file [options..]
                     Deletes the file specified in the filename from the container name specified
                     on the specified cloud.
 
-                storage list [options..]
+                storage list file [options..]
                     lists all the files from the container name specified on the specified cloud.
 
                 storage info [options..]
                     returns the properties of the filename specified from the container name specified
                     on the specified cloud.
 
-                storage createdir [options..]
+                storage create dir [options..]
                     creates the container with the container name specified on the specified cloud.
 
-                storage listdir [options..]
+                storage list dir [options..]
                     lists all the containers on the specified cloud.
 
-                storage deletedir [options..]
+                storage delete dir [options..]
                     deletes the container with the container name specified on the specified cloud.
 
 
