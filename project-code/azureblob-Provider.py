@@ -30,21 +30,7 @@ class Provider(object):
         print("\nDownloading blob to " + download_path)
         blob = self.block_blob_service.get_blob_to_path(self.container, filename, download_path)
         pprint(blob.__dict__)
-        pprint(blob.properties.__dict__)
-        blob.properties = blob.properties.__dict__
-        blob_copy = blob.properties["copy"]
-        blob_cs = blob.properties["content_settings"]
-        blob_ct = blob.properties["creation_time"]
-        blob_mt = blob.properties["last_modified"]
-        blob_dt = blob.properties["deleted_time"]
-        pprint(blob_copy.__dict__)
-        print(blob_ct, '\n', blob_mt, '\n', blob_dt)
-        pprint(blob.__dict__)
-        #blob.cm = {
-        #    "kind": "azure-1"
-        #}
-        return blob
-
+       
     def put(self, filename, sourcedir):
         HEADING()
         if re.search('/', filename) is None:
