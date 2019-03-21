@@ -24,3 +24,4 @@ chapter:
 project:
   - title: Cloud service file management with Azure Storage
     docopt url: https://github.com/cloudmesh-community/sp19-516-123/blob/master/project-code/docopt
+    project code: https://github.com/cloudmesh-community/sp19-516-123/tree/master/project-code
