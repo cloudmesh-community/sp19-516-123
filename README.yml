@@ -18,7 +18,7 @@ section:
     issue: https://github.com/cloudmesh-community/book/issues/246
 chapter:
   - title: Artificial Intelligence service with REST
-    url: https://github.com/cloudmesh-community/book/blob/master/chapters/chapters/in/ai-rest.md
+    url: https://github.com/cloudmesh-community/book/blob/master/chapters/in/ai-rest.md
     github: https://github.com/cloudmesh-community/book/pull/404
     issue: https://github.com/cloudmesh-community/book/issues/243
 project:
