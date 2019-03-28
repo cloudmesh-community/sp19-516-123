@@ -49,7 +49,6 @@ class Provider(object):
         HEADING()
         #Determine service path - file or folder
         if re.search("\.", os.path.basename(destination)) is None:
-            print('test')
             blob_folder = destination[1:]
             blob_file = None
         else:
