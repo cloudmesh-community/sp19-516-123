@@ -29,10 +29,11 @@ class StorageCommand(PluginCommand):
           This command does some useful things.
 
           Arguments:
-              FILENAME   a BLOB name
-              SOURCEDIR  local path for the FILENAME to be uploaded
-              DESTDIR    local path for the FILENAME to be downloaded
-
+              SOURCE        SOURCE can be a directory or file
+              DESTINATION   DESTINATION can be a directory or file
+              DIRECTORY     DIRECTORY refers to a folder on the cloud service
+              
+              
           Options:
               --storage=SERVICE  specify the cloud service name like aws or azure or box or google
 
