@@ -46,36 +46,29 @@ class StorageCommand(PluginCommand):
                 storage get [options..]
                     Downloads the file specified in the filename from the specified cloud to the DESTDIR.
 
-                storage delete file [options..]
+                storage delete [options..]
                     Deletes the file specified in the filename from the specified cloud.
 
-                storage list file [options..]
+                storage list [options..]
                     lists all the files from the container name specified on the specified cloud.
-
-                storage info [options..]
-                    returns the properties of the filename specified on the specified cloud.
 
                 storage create dir [options..]
                     creates a folder with the directory name specified on the specified cloud.
 
-                storage list dir [options..]
-                    lists all the folders on the specified cloud.
+                storage search [options..]
+                    searches for the source in all the folders on the specified cloud.
 
-                storage delete dir [options..]
-                    deletes all the files in the directory specified on the specified cloud.
-
-
+                
           Example:
             set storage=azureblob
-            storage put FILENAME SOURCEDIR
+            storage put SOURCE DESTINATION --recursive
 
             is the same as 
 
-            storage --storage=azureblob put FILENAME SOURCEDIR
+            storage --storage=azureblob put SOURCE DESTINATION --recursive
 
 
         """
-        # arguments.CONTAINER = arguments["--container"]
         arguments.SERVICE = arguments["--storage"]
         pprint(arguments)
 
