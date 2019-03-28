@@ -18,47 +18,32 @@ class Manager(object):
             provider = cloudmesh.storage.provider.azureblob.Provider.Provider()
         return provider
 
-    def get(self, service, filename, destdir):
-        print("get", service, filename)
+    def get(self, service, source, destination, recursive):
+        print("get", service, source)
         provider = self._provider(service)
-        provider.get(filename, destdir)
+        provider.get(source, destination, recursive)
 
-    def put(self, service, filename, sourcedir):
-        print("put", service, filename)
+    def put(self, service, source, destination, recursive):
+        print("put", service, source)
         provider = self._provider(service)
-        provider.put(filename, sourcedir)
+        provider.put(source, destination, recursive)
 
-    def delete(self, service, filename):
-        print("delete filename", filename)
+    def createdir(self, service, directory):
+        print("createdir", directory)
         provider = self._provider(service)
-        provider.delete(filename)
+        provider.create_dir(directory)
 
-    def listfiles(self, service, dirname):
-        print("list", dirname)
+    def delete(self, service, source):
+        print("delete filename", source)
         provider = self._provider(service)
-        provider.listfiles(dirname)
-
-    def info(self, service, filename):
-        print("info", filename)
-        provider = self._provider(service)
-        provider.info(filename)
-
-    def createdir(self, service, dirname):
-        print("createdir", dirname)
-        provider = self._provider(service)
-        provider.createdir(dirname)
-
-    def listdir(self, service):
-        print("listdir")
-        provider = self._provider(service)
-        provider.listdir()
-
-    def deletedir(self, service, dirname):
-        print("deletedir", dirname)
-        provider = self._provider(service)
-        provider.deletedir(dirname)
+        provider.delete(source)
 
     def search(self, service, directory, filename, recursive):
         print("search", directory)
         provider = self._provider(service)
         provider.search(directory, filename, recursive)
+
+    def list(self, service, source, recursive):
+        print("list", source)
+        provider = self._provider(service)
+        provider.list(source, recursive)
