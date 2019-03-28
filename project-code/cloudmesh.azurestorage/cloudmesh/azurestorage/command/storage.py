@@ -18,14 +18,11 @@ class StorageCommand(PluginCommand):
         ::
 
           Usage:
-                storage [--storage=SERVICE] put FILENAME SOURCEDIR
-                storage [--storage=SERVICE] get FILENAME DESTDIR
-                storage [--storage=SERVICE] delete file FILENAME
-                storage [--storage=SERVICE] list file DIRNAME
-                storage [--storage=SERVICE] info FILENAME
-                storage [--storage=SERVICE] create dir DIRNAME
-                storage [--storage=SERVICE] list dir
-                storage [--storage=SERVICE] delete dir DIRNAME
+                storage [--storage=SERVICE] create dir DIRECTORY
+                storage [--storage=SERVICE] get SOURCE DESTINATION [--recursive]
+                storage [--storage=SERVICE] put SOURCE DESTINATION [--recursive]
+                storage [--storage=SERVICE] list SOURCE [--recursive]
+                storage [--storage=SERVICE] delete SOURCE
                 storage [--storage=SERVICE] search  DIRECTORY FILENAME [--recursive]
 
 
@@ -101,61 +98,54 @@ class StorageCommand(PluginCommand):
             if arguments.SERVICE is None:
                 variables = Variables()
                 arguments.SERVICE = variables['storage']
-            m.get(arguments.SERVICE, arguments.FILENAME, arguments.DESTDIR)
+            if arguments['--recursive']:
+                print('in get')
+                recur = True
+            else:
+                recur = False
+            m.get(arguments.SERVICE, arguments.SOURCE, arguments.DESTINATION, recur)
 
         elif arguments['put']:
             if arguments.SERVICE is None:
                 variables = Variables()
                 arguments.SERVICE = variables['storage']
-            m.put(arguments.SERVICE, arguments.FILENAME, arguments.SOURCEDIR)
+                if arguments['--recursive']:
+                    print('in recur')
+                    recur = True
+                else:
+                    recur = False
+            m.put(arguments.SERVICE, arguments.SOURCE, arguments.DESTINATION, recur)
 
-        elif arguments['delete'] and  arguments['file']:
+        elif arguments['list']:
+            print('in List')
             if arguments.SERVICE is None:
                 variables = Variables()
                 arguments.SERVICE = variables['storage']
-            m.delete(arguments.SERVICE, arguments.FILENAME)
-
-        elif arguments['list'] and arguments['file']:
-            if arguments.SERVICE is None:
-                variables = Variables()
-                arguments.SERVICE = variables['storage']
-            m.listfiles(arguments.SERVICE, arguments.DIRNAME)
-
-        elif arguments['info']:
-            if arguments.SERVICE is None:
-                variables = Variables()
-                arguments.SERVICE = variables['storage']
-            m.info(arguments.SERVICE, arguments.FILENAME)
+            if arguments['--recursive']:
+                print('in recur')
+                recur = True
+            else:
+                recur = False
+            m.list(arguments.SERVICE, arguments.SOURCE, recur)
 
         elif arguments['create'] and arguments['dir']:
             if arguments.SERVICE is None:
                 variables = Variables()
                 arguments.SERVICE = variables['storage']
-            m.createdir(arguments.SERVICE, arguments.DIRNAME)
+            m.createdir(arguments.SERVICE, arguments.DIRECTORY)
 
-        elif arguments['list'] and arguments['dir']:
+        elif arguments['delete']:
             if arguments.SERVICE is None:
                 variables = Variables()
                 arguments.SERVICE = variables['storage']
-            m.listdir(arguments.SERVICE)
-
-        elif arguments['delete'] and arguments['dir']:
-            if arguments.SERVICE is None:
-                variables = Variables()
-                arguments.SERVICE = variables['storage']
-            m.deletedir(arguments.SERVICE, arguments.DIRNAME)
+            m.delete(arguments.SERVICE, arguments.SOURCE)
 
         elif arguments['search']:
             if arguments.SERVICE is None:
                 variables = Variables()
                 arguments.SERVICE = variables['storage']
             if arguments['--recursive']:
-                recur = 'Y'
+                recur = True
             else:
-                recur = 'N'
+                recur = False
             m.search(arguments.SERVICE, arguments.DIRECTORY, arguments.FILENAME, recur)
-
-
-
-
-
