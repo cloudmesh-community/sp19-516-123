@@ -21,17 +21,20 @@ class Manager(object):
     def get(self, service, source, destination, recursive):
         print("get", service, source)
         provider = self._provider(service)
-        provider.get(source, destination, recursive)
+        d = provider.get(source, destination, recursive)
+        return d
 
     def put(self, service, source, destination, recursive):
         print("put", service, source)
         provider = self._provider(service)
-        provider.put(source, destination, recursive)
+        d = provider.put(source, destination, recursive)
+        return d
 
     def createdir(self, service, directory):
         print("createdir", directory)
         provider = self._provider(service)
-        provider.create_dir(directory)
+        d = provider.create_dir(directory)
+        return d
 
     def delete(self, service, source):
         print("delete filename", source)
@@ -46,4 +49,5 @@ class Manager(object):
     def list(self, service, source, recursive):
         print("list", source)
         provider = self._provider(service)
-        provider.list(source, recursive)
+        d = provider.list(source, recursive)
+        return d
