@@ -7,7 +7,7 @@ owner:
   semester: sp19
   profile: "https://github.com/mallik3006"
 section:
-  - title: XML and HTML
+  - title: XML and HTML with Python
     keyword: XML, HTML
     url: https://https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python-data.md
     github: https://github.com/cloudmesh-community/book/pull/315
