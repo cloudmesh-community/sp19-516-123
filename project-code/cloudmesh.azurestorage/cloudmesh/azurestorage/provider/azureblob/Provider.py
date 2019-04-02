@@ -17,6 +17,7 @@ class Provider(object):
     def __init__(self):
         print("init {name}".format(name=self.__class__.__name__))
         config = Config()
+        # BUG in next line
         self.block_blob_service = BlockBlobService(account_name=config['cloudmesh.storage.azure-1.credentials.account_name'],
                                                    account_key=config['cloudmesh.storage.azure-1.credentials.account_key'])
         self.container = config['cloudmesh.storage.azure-1.credentials.container']
@@ -28,12 +29,14 @@ class Provider(object):
             entry = element.__dict__
             entry["cm"] = {}
             entry["cm"]["kind"] = "storage"
+            # BUG in next line
             entry["cm"]["cloud"] = "azure"
             entry["cm"]["name"] = element.name
             element.properties = element.properties.__dict__
             entry["cm"]["created"] = element.properties["creation_time"].isoformat()
             entry["cm"]["updated"] = element.properties["last_modified"].isoformat()
             entry["cm"]["size"] = element.properties["content_length"]
+            # Q: do your realy want to delete them?
             del element.properties["copy"]
             del element.properties["lease"]
             del element.properties["content_settings"]
@@ -56,7 +59,7 @@ class Provider(object):
         :return: dict
 
         '''
-
+        # BUG in next line
         HEADING()
         #Determine service path - file or folder
         if re.search("\.", os.path.basename(destination)) is None:
@@ -70,6 +73,7 @@ class Provider(object):
                 blob_folder = os.path.dirname(destination)[1:]
 
         # Determine local path i.e. download-to-folder
+        # BUG in next line. make function
         if source.startswith('~'):
             src_path = path_expand(source)
         elif source.startswith('/'):
@@ -92,6 +96,7 @@ class Provider(object):
                     else:
                         return Console.error("File does not exist: {file}".format(file=blob_file))
                 else:
+                    # BUG in next line, why not use true false
                     file_found = 'N'
                     get_gen = self.block_blob_service.list_blobs(self.container)
                     for blob in get_gen:
@@ -104,6 +109,7 @@ class Provider(object):
             else:
                 if blob_file is None:
                     #Folder only specified
+                    # BUG in next line if not recursive
                     if recursive == False:
                         file_found = 'N'
                         get_gen = self.block_blob_service.list_blobs(self.container)
@@ -153,12 +159,14 @@ class Provider(object):
 
         HEADING()
         #Determine service path - file or folder
+        # i do not get the regex
         if re.search("\.", os.path.basename(destination)) is None:
             blob_folder = destination[1:]
             blob_file = None
         else:
             return Console.error("Directory does not exist: {directory}".format(directory=destination))
 
+        # BUG in next line, use function
         # Determine local path i.e. upload-from-folder
         if source.startswith('~'):
             src_path = path_expand(source)
@@ -198,6 +206,7 @@ class Provider(object):
                             entry = obj.__dict__
                             entry["cm"] = {}
                             entry["cm"]["kind"] = "storage"
+                            # BUG in next line
                             entry["cm"]["cloud"] = "azure"
                             entry["cm"]["name"] = upl_file
                             entry["cm"]["created"] = obj.last_modified.isoformat()
@@ -221,7 +230,9 @@ class Provider(object):
 
         '''
 
+        # BUG in next line
         HEADING()
+        # is this code repeated?
         if re.search("\.", os.path.basename(source)) is None:
             blob_folder = source[1:]
             blob_file = None
@@ -318,6 +329,7 @@ class Provider(object):
         '''
 
         HEADING()
+        # Is thsi code repeated?
         if re.search("\.", os.path.basename(source)) is None:
             blob_folder = source[1:]
             blob_file = None
