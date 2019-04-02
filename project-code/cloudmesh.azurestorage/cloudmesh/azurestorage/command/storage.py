@@ -1,5 +1,7 @@
 from __future__ import print_function
 from cloudmesh.shell.command import command
+
+map_parameters
 from cloudmesh.shell.command import PluginCommand
 from cloudmesh.storage.api.manager import Manager
 from cloudmesh.shell.variables import Variables
@@ -66,13 +68,23 @@ class StorageCommand(PluginCommand):
 
         """
         # arguments.CONTAINER = arguments["--container"]
-        arguments.SERVICE = arguments["--storage"]
+
+        map_parameters(arguments,
+                       "recursive",
+                       "storage")
+        arguments.storage = arguments["--storage"]
         pprint(arguments)
 
         m = Manager()
 
         service = None
 
+        #
+        # BUG
+        # services = Parameter.expand(arguments.storage)
+        # service = services[0]
+        # if services is None:
+        #  ... do second try
         try:
             service = arguments["--storage"][0]
         except Exception as e:
@@ -86,58 +98,29 @@ class StorageCommand(PluginCommand):
             Console.error("storage service not defined")
             return
 
-        if arguments['get']:
-            if arguments.SERVICE is None:
-                variables = Variables()
-                arguments.SERVICE = variables['storage']
-            if arguments['--recursive']:
-                print('in get')
-                recur = True
-            else:
-                recur = False
-            m.get(arguments.SERVICE, arguments.SOURCE, arguments.DESTINATION, recur)
+        # bug this is now done twice ....
+        if arguments.storage is None:
+            variables = Variables()
+            arguments.storage = variables['storage']
 
-        elif arguments['put']:
-            if arguments.SERVICE is None:
-                variables = Variables()
-                arguments.SERVICE = variables['storage']
-            if arguments['--recursive']:
-                print('in recur')
-                recur = True
-            else:
-                recur = False
-            m.put(arguments.SERVICE, arguments.SOURCE, arguments.DESTINATION, recur)
+        if arguments.get:
+            m.get(arguments.storage, arguments.SOURCE, arguments.DESTINATION,
+                  arguments.recursive)
 
-        elif arguments['list']:
+        elif arguments.put:
+            m.put(arguments.storage, arguments.SOURCE, arguments.DESTINATION,
+                  arguments.recursive)
+
+        elif arguments.list:
             print('in List')
-            if arguments.SERVICE is None:
-                variables = Variables()
-                arguments.SERVICE = variables['storage']
-            if arguments['--recursive']:
-                print('in recur')
-                recur = True
-            else:
-                recur = False
-            m.list(arguments.SERVICE, arguments.SOURCE, recur)
+            m.list(arguments.storage, arguments.SOURCE, arguments.recursive)
 
-        elif arguments['create'] and arguments['dir']:
-            if arguments.SERVICE is None:
-                variables = Variables()
-                arguments.SERVICE = variables['storage']
-            m.createdir(arguments.SERVICE, arguments.DIRECTORY)
+        elif arguments.create and arguments.dir.:
+            m.createdir(arguments.storage, arguments.DIRECTORY)
 
-        elif arguments['delete']:
-            if arguments.SERVICE is None:
-                variables = Variables()
-                arguments.SERVICE = variables['storage']
-            m.delete(arguments.SERVICE, arguments.SOURCE)
+        elif arguments.delete.:
+            m.delete(arguments.storage, arguments.SOURCE)
 
         elif arguments['search']:
-            if arguments.SERVICE is None:
-                variables = Variables()
-                arguments.SERVICE = variables['storage']
-            if arguments['--recursive']:
-                recur = True
-            else:
-                recur = False
-            m.search(arguments.SERVICE, arguments.DIRECTORY, arguments.FILENAME, recur)
+            m.search(arguments.storage, arguments.DIRECTORY, arguments.FILENAME,
+                     arguments.recursive)
