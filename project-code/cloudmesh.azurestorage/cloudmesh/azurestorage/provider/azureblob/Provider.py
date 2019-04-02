@@ -14,13 +14,15 @@ from cloudmesh.common.util import path_expand
 
 class Provider(object):
 
-    def __init__(self):
-        print("init {name}".format(name=self.__class__.__name__))
+    def __init__(self, name=None):
+        if name is None:
+            raise ValueError("service name not specified")
         config = Config()
-        # BUG in next line
-        self.block_blob_service = BlockBlobService(account_name=config['cloudmesh.storage.azure-1.credentials.account_name'],
-                                                   account_key=config['cloudmesh.storage.azure-1.credentials.account_key'])
-        self.container = config['cloudmesh.storage.azure-1.credentials.container']
+        credentials = config['cloudmesh']['storage'][name]['credentials']
+        self.block_blob_service = BlockBlobService(
+            account_name=credentials['account_name'],
+            account_key=credentials['account_key'])
+        self.container = credentials['container']
 
     def change_path(self, source):
         # Determine local path i.e. download-to-folder
@@ -32,6 +34,12 @@ class Provider(object):
         elif source == '.':
             src_path = os.getcwd()
         else:
+            src_path = os.path.join(os.getcwd(), source)
+        return src_path
+
+    def gregors_change_path(self, source):  # likeley same as above
+        src_path = path_expand(source)
+        if src_path[0] not in [".", "/"]:
             src_path = os.path.join(os.getcwd(), source)
         return src_path
 
