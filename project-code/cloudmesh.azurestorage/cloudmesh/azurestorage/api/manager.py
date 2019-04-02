@@ -44,7 +44,8 @@ class Manager(object):
     def search(self, service, directory, filename, recursive):
         print("search", directory)
         provider = self._provider(service)
-        provider.search(directory, filename, recursive)
+        d = provider.search(directory, filename, recursive)
+        return d
 
     def list(self, service, source, recursive):
         print("list", source)
