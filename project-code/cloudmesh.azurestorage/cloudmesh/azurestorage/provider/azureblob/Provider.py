@@ -22,6 +22,19 @@ class Provider(object):
                                                    account_key=config['cloudmesh.storage.azure-1.credentials.account_key'])
         self.container = config['cloudmesh.storage.azure-1.credentials.container']
 
+    def change_path(self, source):
+        # Determine local path i.e. download-to-folder
+        # BUG in next line. make function
+        if source.startswith('~'):
+            src_path = path_expand(source)
+        elif source.startswith('/'):
+            src_path = source
+        elif source == '.':
+            src_path = os.getcwd()
+        else:
+            src_path = os.path.join(os.getcwd(), source)
+        return src_path
+
     # change this to update_dict as its not overwriting dict
     def dict(self, elements, kind=None):
         # this is an internal function for building dict object
@@ -73,16 +86,7 @@ class Provider(object):
             else:
                 blob_folder = os.path.dirname(destination)[1:]
 
-        # Determine local path i.e. download-to-folder
-        # BUG in next line. make function
-        if source.startswith('~'):
-            src_path = path_expand(source)
-        elif source.startswith('/'):
-            src_path = source
-        elif source == '.':
-            src_path = os.getcwd()
-        else:
-            src_path = os.path.join(os.getcwd(), source)
+        src_path = self.change_path(source)
 
         if not os.path.isdir(src_path):
             return Console.error("Directory not found: {directory}".format(directory=src_path))
@@ -167,16 +171,7 @@ class Provider(object):
         else:
             return Console.error("Directory does not exist: {directory}".format(directory=destination))
 
-        # BUG in next line, use function
-        # Determine local path i.e. upload-from-folder
-        if source.startswith('~'):
-            src_path = path_expand(source)
-        elif source.startswith('/'):
-            src_path = source
-        elif source == '.':
-            src_path = os.getcwd()
-        else:
-            src_path = os.path.join(os.getcwd(), source)
+        src_path = self.change_path(source)
 
         if os.path.isdir(src_path) or os.path.isfile(src_path):
             dict_obj = []
