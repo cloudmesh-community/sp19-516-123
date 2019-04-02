@@ -48,6 +48,7 @@ class Provider(object):
         # this is an internal function for building dict object
         d = []
         for element in elements:
+            # DUPLICATED CODE
             entry = element.__dict__
             entry["cm"] = {}
             entry["cm"]["kind"] = "storage"
@@ -189,6 +190,7 @@ class Provider(object):
                 upl_path = src_path
                 upl_file = blob_folder + '/' + os.path.basename(src_path)
                 obj = self.block_blob_service.create_blob_from_path(self.container, upl_file, upl_path)
+                # duplicated code
                 entry = obj.__dict__
                 entry["cm"] = {}
                 entry["cm"]["kind"] = "storage"
@@ -207,6 +209,7 @@ class Provider(object):
                             upl_path = os.path.join(src_path, file)
                             upl_file = blob_folder + '/' + file
                             obj = self.block_blob_service.create_blob_from_path(self.container, upl_file, upl_path)
+                            # duplicated code
                             entry = obj.__dict__
                             entry["cm"] = {}
                             entry["cm"]["kind"] = "storage"
