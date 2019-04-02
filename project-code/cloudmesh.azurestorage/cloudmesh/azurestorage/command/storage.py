@@ -85,6 +85,8 @@ class StorageCommand(PluginCommand):
         # service = services[0]
         # if services is None:
         #  ... do second try
+
+        ##### BUG
         try:
             service = arguments["--storage"][0]
         except Exception as e:
@@ -102,6 +104,8 @@ class StorageCommand(PluginCommand):
         if arguments.storage is None:
             variables = Variables()
             arguments.storage = variables['storage']
+
+        ##### Prvious code needs to be modified
 
         if arguments.get:
             m.get(arguments.storage, arguments.SOURCE, arguments.DESTINATION,
