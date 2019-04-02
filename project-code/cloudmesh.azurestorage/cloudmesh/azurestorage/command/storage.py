@@ -32,11 +32,10 @@ class StorageCommand(PluginCommand):
               SOURCE        SOURCE can be a directory or file
               DESTINATION   DESTINATION can be a directory or file
               DIRECTORY     DIRECTORY refers to a folder on the cloud service
-              
-              
+
+
           Options:
               --storage=SERVICE  specify the cloud service name like aws or azure or box or google
-
           Description:
                 commands used to upload, download, list files on different cloud storage services.
 
@@ -58,17 +57,15 @@ class StorageCommand(PluginCommand):
                 storage search [options..]
                     searches for the source in all the folders on the specified cloud.
 
-                
           Example:
             set storage=azureblob
             storage put SOURCE DESTINATION --recursive
 
-            is the same as 
-
+            is the same as
             storage --storage=azureblob put SOURCE DESTINATION --recursive
 
-
         """
+        # arguments.CONTAINER = arguments["--container"]
         arguments.SERVICE = arguments["--storage"]
         pprint(arguments)
 
@@ -87,6 +84,7 @@ class StorageCommand(PluginCommand):
 
         if service is None:
             Console.error("storage service not defined")
+            return
 
         if arguments['get']:
             if arguments.SERVICE is None:
@@ -103,11 +101,11 @@ class StorageCommand(PluginCommand):
             if arguments.SERVICE is None:
                 variables = Variables()
                 arguments.SERVICE = variables['storage']
-                if arguments['--recursive']:
-                    print('in recur')
-                    recur = True
-                else:
-                    recur = False
+            if arguments['--recursive']:
+                print('in recur')
+                recur = True
+            else:
+                recur = False
             m.put(arguments.SERVICE, arguments.SOURCE, arguments.DESTINATION, recur)
 
         elif arguments['list']:
