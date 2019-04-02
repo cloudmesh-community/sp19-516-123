@@ -21,7 +21,7 @@ class Manager(object):
         elif service == "box":
             provider = BoxProvider()
         elif service == "azureblob":
-            provider = AzureProvider()
+            provider = AzureProvider(service)
         else:
             raise ValueError(f"the provider {service} is not defined")
         return provider
