@@ -22,6 +22,7 @@ class Provider(object):
                                                    account_key=config['cloudmesh.storage.azure-1.credentials.account_key'])
         self.container = config['cloudmesh.storage.azure-1.credentials.container']
 
+    # change this to update_dict as its not overwriting dict
     def dict(self, elements, kind=None):
         # this is an internal function for building dict object
         d = []
