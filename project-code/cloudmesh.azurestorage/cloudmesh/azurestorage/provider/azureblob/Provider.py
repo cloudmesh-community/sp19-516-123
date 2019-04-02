@@ -110,15 +110,15 @@ class Provider(object):
                     else:
                         return Console.error("File does not exist: {file}".format(file=blob_file))
                 else:
-                    # BUG in next line, why not use true false
-                    file_found = 'N'
+                    # see how we use boooleans instead of comparision to 'N' 'Y' change code
+                    file_found = False
                     get_gen = self.block_blob_service.list_blobs(self.container)
                     for blob in get_gen:
                         if os.path.basename(blob.name) == blob_file:
                             download_path = os.path.join(src_path, blob_file)
                             obj_list.append(self.block_blob_service.get_blob_to_path(self.container, blob.name, download_path))
-                            file_found = 'Y'
-                    if file_found == 'N':
+                            file_found = True
+                    if not file_found:
                         return Console.error("File does not exist: {file}".format(file=blob_file))
             else:
                 if blob_file is None:
