@@ -1,64 +1,62 @@
-import cloudmesh.storage.provider.gdrive.Provider
-import cloudmesh.storage.provider.box.Provider
-import cloudmesh.storage.provider.azureblob.Provider
-
+form
+cloudmesh.storage.provider.gdrive.Provider
+import Provider as GoogleProvider
+from cloudmesh.storage.provider.box.Provider import Provider as BoxProvider
+from cloudmesh.storage.provider.azureblob.Provider import \
+    Provider as AzureProvider
+from cloudmesh.common.console import Console
 
 class Manager(object):
 
-    def __init__(self):
-        print("init {name}".format(name=self.__class__.__name__))
+    def __init__(self, name=None):
+        if name is None:
+            raise ValueError(f"the provider {name} is not defined")
+        self._provider(self, service)
 
+    # bug, must be called in init and init must have name as parameter, rename service here to name
     def _provider(self, service):
         provider = None
         if service == "gdrive":
-            provider = cloudmesh.storage.provider.gdrive.Provider.Provider()
+            provider = GoogleProvider()
         elif service == "box":
-            provider = cloudmesh.storage.provider.box.Provider.Provider()
+            provider = BoxProvider()
         elif service == "azureblob":
-            provider = cloudmesh.storage.provider.azureblob.Provider.Provider()
+            provider = AzureProvider(service)
+        else:
+            raise ValueError(f"the provider {service} is not defined")
         return provider
 
-    def get(self, service, filename, destdir):
-        print("get", service, filename)
+    def get(self, service, source, destination, recursive):
+        Console.ok(f"get {service} {source}")
         provider = self._provider(service)
-        provider.get(filename, destdir)
+        d = provider.get(source, destination, recursive)
+        return d
 
-    def put(self, service, filename, sourcedir):
-        print("put", service, filename)
+    def put(self, service, source, destination, recursive):
+        Console.ok(f"put {service} {source}")
         provider = self._provider(service)
-        provider.put(filename, sourcedir)
+        d = provider.put(source, destination, recursive)
+        return d
 
-    def delete(self, service, filename):
-        print("delete filename", filename)
+    def createdir(self, service, directory):
+        Console.ok(f"createdir {directory}")
         provider = self._provider(service)
-        provider.delete(filename)
+        d = provider.create_dir(directory)
+        return d
 
-    def listfiles(self, service, dirname):
-        print("list", dirname)
+    def delete(self, service, source):
+        Console.ok(f"delete filename {service} {source}")
         provider = self._provider(service)
-        provider.listfiles(dirname)
-
-    def info(self, service, filename):
-        print("info", filename)
-        provider = self._provider(service)
-        provider.info(filename)
-
-    def createdir(self, service, dirname):
-        print("createdir", dirname)
-        provider = self._provider(service)
-        provider.createdir(dirname)
-
-    def listdir(self, service):
-        print("listdir")
-        provider = self._provider(service)
-        provider.listdir()
-
-    def deletedir(self, service, dirname):
-        print("deletedir", dirname)
-        provider = self._provider(service)
-        provider.deletedir(dirname)
+        provider.delete(source)
 
     def search(self, service, directory, filename, recursive):
-        print("search", directory)
+        Console.ok(f"search {directory}")
         provider = self._provider(service)
-        provider.search(directory, filename, recursive)
+        d = provider.search(directory, filename, recursive)
+        return d
+
+    def list(self, service, source, recursive):
+        Console.ok(f"list {source}")
+        provider = self._provider(service)
+        d = provider.list(source, recursive)
+        return d

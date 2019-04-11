@@ -7,10 +7,11 @@ owner:
   semester: sp19
   profile: "https://github.com/mallik3006"
 section:
-  - title: XML 
-    keyword: XML
+  - title: XML and HTML with Python
+    keyword: XML, HTML, Beautiful Soup
     url: https://https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python-data.md
     github: https://github.com/cloudmesh-community/book/pull/315
+    github: https://github.com/cloudmesh-community/book/pull/427
   - title: OpenFaaS
     keyword: OpenFaas function 
     url: https://github.com/cloudmesh-community/book/blob/master/chapters/faas/openfaas.md
@@ -18,8 +19,8 @@ section:
     issue: https://github.com/cloudmesh-community/book/issues/246
 chapter:
   - title: Artificial Intelligence service with REST
-    url:
-    github:
+    url: https://github.com/cloudmesh-community/book/blob/master/chapters/in/ai-rest.md
+    github: https://github.com/cloudmesh-community/book/pull/404
     issue: https://github.com/cloudmesh-community/book/issues/243
 project:
   - title: Cloud service file management with Azure Storage
