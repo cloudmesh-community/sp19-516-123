@@ -22,7 +22,7 @@ paths:
       tags:
         - AZS
       operationId: azstor_openapi.put_blob
-      description: "Returns list of blobs in the specified directory"
+      description: "Upload blobs to the specified directory"
       parameters:
         - in: body
           name: params 
@@ -39,7 +39,7 @@ paths:
       tags:
         - AZS
       operationId: azstor_openapi.get_blob
-      description: "Returns list of blobs in the specified directory"
+      description: "Download blobs from specified directory"
       parameters:
         - in: query
           name: service 
@@ -102,7 +102,7 @@ paths:
       tags:
         - AZS
       operationId: azstor_openapi.search_blob
-      description: "Returns list of blobs in the specified directory"
+      description: "Searches the blobs in the specified directory"
       parameters:
         - in: query
           name: service 
@@ -136,7 +136,7 @@ paths:
       tags:
         - AZS
       operationId: azstor_openapi.delete_blob
-      description: "Returns list of blobs in the specified directory"
+      description: "Deletes the blobs in the specified directory"
       parameters:
         - in: query
           name: service 
@@ -165,7 +165,7 @@ paths:
       tags:
         - AZS
       operationId: azstor_openapi.create_dir
-      description: "Returns list of blobs in the specified directory"
+      description: "creates the specified directory"
       parameters:
         - in: query
           name: service 
