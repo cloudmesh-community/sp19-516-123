@@ -1,6 +1,6 @@
 ###############################################################
 # pip install .; pytest -v --capture=no -v --nocapture tests/test_cloud_openapi_azure_storage.py:Test_cloud_openapi_azure_storage.test_001
-# pytest -v --capture=no tests/test_cloud_openapi_azure_storager.py
+# pytest -v --capture=no tests/test_cloud_openapi_azure_storage.py
 # pytest -v  tests/test_cloud_openapi_azure_storage.py
 ###############################################################
 
@@ -37,7 +37,18 @@ class Test_cloud_installer:
     endef
     endif
     """
-
+    
+    service = run(command)
+    service.execute()
+    time.sleep(5)
+    service.kill()
+    
+    
+    service = run(command).execute()
+    time.sleep(5)
+    service.kill()
+    
+    
     def test_create_dir(self):
         path = "tmp"
         try:
