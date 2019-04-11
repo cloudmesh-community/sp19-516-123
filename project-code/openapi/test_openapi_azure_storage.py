@@ -38,15 +38,18 @@ class Test_cloud_installer:
     endif
     """
     
-    service = run(command)
-    service.execute()
-    time.sleep(5)
-    service.kill()
+    def test_setup():
+        self.variables = Variables()
+        self.storage = Parameter.expand(variables['storage'])
+        self.storage = storage[0]
+        self.p = Provider(service=storage)
+          
+        self.openapi = run(command).execute()
+        time.sleep(5)
+        #self.service = "azureblob"
+        #service.kill()
     
-    
-    service = run(command).execute()
-    time.sleep(5)
-    service.kill()
+        
     
     
     def test_create_dir(self):
@@ -73,8 +76,11 @@ class Test_cloud_installer:
 
     def test_openapi_azure_storage_list(self):
         banner('list the blobs')
+        storage = self.storage
+        #result = run(
+        #    "curl http://localhost:8080/cloudmesh/list_blob?service=azureblob'&'directory=%2ftest'&'recursive=True")
         result = run(
-            "curl http://localhost:8080/cloudmesh/list_blob?service=azureblob'&'directory=%2ftest'&'recursive=True")
+            f"curl http://localhost:8080/cloudmesh/list_blob?service={storage}'&'directory=%2ftest'&'recursive=True")
         print(result)
         print()
 
