@@ -1,9 +1,9 @@
 from __future__ import print_function
 from cloudmesh.shell.command import command
 
-map_parameters
-from cloudmesh.shell.command import PluginCommand
-from cloudmesh.storage.api.manager import Manager
+
+from cloudmesh.shell.command import PluginCommand, map_parameters
+from cloudmesh.storage.Provider import Provider
 from cloudmesh.shell.variables import Variables
 from pprint import pprint
 from cloudmesh.common.console import Console
@@ -75,7 +75,7 @@ class StorageCommand(PluginCommand):
         arguments.storage = arguments["--storage"]
         pprint(arguments)
 
-        m = Manager()
+        m = Provider()
 
         service = None
 

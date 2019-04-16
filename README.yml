@@ -10,8 +10,6 @@ section:
   - title: XML and HTML with Python
     keyword: XML, HTML, Beautiful Soup
     url: https://https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python-data.md
-    github: https://github.com/cloudmesh-community/book/pull/315
-    github: https://github.com/cloudmesh-community/book/pull/427
   - title: OpenFaaS
     keyword: OpenFaas function 
     url: https://github.com/cloudmesh-community/book/blob/master/chapters/faas/openfaas.md
@@ -24,7 +22,7 @@ chapter:
     issue: https://github.com/cloudmesh-community/book/issues/243
 project:
   - title: Cloud service file management with Azure Storage
-    docopt url: https://github.com/cloudmesh-community/sp19-516-123/blob/master/project-code/docopt
-    project code: https://github.com/cloudmesh-community/sp19-516-123/tree/master/project-code
-    azure storage command: https://github.com/cloudmesh/cloudmesh-storage
-    storage openapi: https://github.com/cloudmesh/cloudmesh-storage/tree/master/cloudmesh/storage/spec
+    url: https://github.com/cloudmesh-community/sp19-516-123/blob/master/project-code/docopt
+    code: https://github.com/cloudmesh-community/sp19-516-123/tree/master/project-code
+    command: https://github.com/cloudmesh/cloudmesh-storage
+    openapi: https://github.com/cloudmesh/cloudmesh-storage/tree/master/cloudmesh/storage/spec
