@@ -26,3 +26,5 @@ project:
     code: https://github.com/cloudmesh/cloudmesh-storage/tree/master/cloudmesh/storage/provider/azureblob
     command: https://github.com/cloudmesh/cloudmesh-storage
     openapi: https://github.com/cloudmesh/cloudmesh-storage/tree/master/cloudmesh/storage/spec
+    pytest:
+      - TBD
