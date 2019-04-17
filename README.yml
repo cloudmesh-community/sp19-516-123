@@ -22,7 +22,7 @@ chapter:
     issue: https://github.com/cloudmesh-community/book/issues/243
 project:
   - title: Cloud service file management with Azure Storage
-    url: https://github.com/cloudmesh-community/sp19-516-123/blob/master/project-code/docopt
+    url: https://github.com/cloudmesh/cloudmesh-storage/blob/master/README.md
     code: https://github.com/cloudmesh-community/sp19-516-123/tree/master/project-code
     command: https://github.com/cloudmesh/cloudmesh-storage
     openapi: https://github.com/cloudmesh/cloudmesh-storage/tree/master/cloudmesh/storage/spec
