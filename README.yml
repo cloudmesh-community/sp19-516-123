@@ -9,7 +9,7 @@ owner:
 section:
   - title: XML and HTML with Python
     keyword: XML, HTML, Beautiful Soup
-    url: //https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python-data.md
+    url: https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python-data.md
     github: https://github.com/cloudmesh-community/book/pull/315
     github: https://github.com/cloudmesh-community/book/pull/427
   - title: OpenFaaS
