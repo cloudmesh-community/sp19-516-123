@@ -7,10 +7,13 @@ owner:
   semester: sp19
   profile: "https://github.com/mallik3006"
 section:
-  - title: XML and HTML with Python
-    keyword: XML, HTML, Beautiful Soup
-    url: https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python-data.md
+  - title: XML with Python
+    keyword: XML, Python
+    url: https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python-data.md#xml
     github: https://github.com/cloudmesh-community/book/pull/315
+  - title: HTML with Beautiful Soup
+    keyword: HTML, Beautiful Soup
+    url: https://github.com/cloudmesh-community/book/blob/master/chapters/prg/python/python-data.md#html
     github: https://github.com/cloudmesh-community/book/pull/427
   - title: OpenFaaS Function
     keyword: OpenFaas function 
