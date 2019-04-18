@@ -29,4 +29,5 @@ project:
     command: https://github.com/cloudmesh/cloudmesh-storage
     openapi: https://github.com/cloudmesh/cloudmesh-storage/tree/master/cloudmesh/storage/spec
     pytest:
-      - TBD
+      - https://github.com/cloudmesh/cloudmesh-storage/blob/master/tests/test_azure.py
+      - https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/spec/tests/test_openapi_storage.py
