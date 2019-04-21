@@ -1,5 +1,4 @@
 ###############################################################
-# pip install .; pytest -v --capture=no -v --nocapture tests/test_cloud_openapi_azure_storage.py:Test_cloud_openapi_azure_storage.test_001
 # pytest -v --capture=no tests/test_cloud_openapi_azure_storage.py
 # pytest -v  tests/test_cloud_openapi_azure_storage.py
 ###############################################################
