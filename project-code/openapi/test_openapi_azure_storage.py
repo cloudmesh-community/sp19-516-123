@@ -38,7 +38,7 @@ class Test_cloud_installer:
     endif
     """
     
-    def test_setup():
+    def test_setup(self):
         self.variables = Variables()
         self.storage = Parameter.expand(variables['storage'])
         self.storage = storage[0]
@@ -48,8 +48,7 @@ class Test_cloud_installer:
         time.sleep(5)
         #self.service = "azureblob"
         #service.kill()
-    
-        
+
     
     
     def test_create_dir(self):
