@@ -32,8 +32,8 @@ project:
     code: https://github.com/cloudmesh/cloudmesh-storage/tree/master/cloudmesh/storage/provider/azureblob
     command: https://github.com/cloudmesh/cloudmesh-storage
     openapi: https://github.com/cloudmesh/cloudmesh-storage/tree/master/cloudmesh/storage/spec
-    Manual-Update: https://github.com/cloudmesh/cloudmesh-manual/pull/6
     pytest:
-    - https://github.com/cloudmesh/cloudmesh-storage/blob/master/tests/test_storage_azure.py
-    - https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/spec/tests/test_openapi_storage.py
+      - https://github.com/cloudmesh/cloudmesh-storage/blob/master/tests/test_storage_azure.py
+      - https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/spec/tests/test_openapi_storage.py
     benchmark: https://github.com/cloudmesh/cloudmesh-manual/blob/master/docs-source/source/benchmarks/azure-storage-benchmark.md
+    documentation: https://github.com/cloudmesh/cloudmesh-manual/pull/6
