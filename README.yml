@@ -27,7 +27,7 @@ chapter:
     issue: https://github.com/cloudmesh-community/book/issues/243
 project:
   - title: Cloud service file management with Azure Storage
-    status: 100%
+    status: "100%"
     url: https://github.com/cloudmesh/cloudmesh-storage/blob/master/README.md
     code: https://github.com/cloudmesh/cloudmesh-storage/tree/master/cloudmesh/storage/provider/azureblob
     command: https://github.com/cloudmesh/cloudmesh-storage
