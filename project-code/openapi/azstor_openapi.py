@@ -7,7 +7,7 @@ from cloudmesh.storage.provider.local.Provider import Provider as LocalProvider
 from cloudmesh.storage.provider.gdrive.Provider import Provider as GdriveProvider
 
 def setup(kind):
-    config = "~/.cloudmesh/cloudmesh4.yaml"
+    config = "~/.cloudmesh/cloudmesh.yaml"
     if kind == "local":
         provider = LocalProvider(service=kind, config=config)
     elif kind == "box":

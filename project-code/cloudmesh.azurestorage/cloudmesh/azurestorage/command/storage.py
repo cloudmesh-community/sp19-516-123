@@ -4,7 +4,7 @@ from cloudmesh.shell.command import command
 
 from cloudmesh.shell.command import PluginCommand, map_parameters
 from cloudmesh.storage.Provider import Provider
-from cloudmesh.shell.variables import Variables
+from cloudmesh.common.variables import Variables
 from pprint import pprint
 from cloudmesh.common.console import Console
 from cloudmesh.common.parameter import Parameter

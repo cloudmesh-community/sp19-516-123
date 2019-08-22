@@ -2,7 +2,7 @@ from __future__ import print_function
 from cloudmesh.shell.command import command
 from cloudmesh.shell.command import PluginCommand
 from cloudmesh.storage.api.manager import Manager
-from cloudmesh.shell.variables import Variables
+from cloudmesh.common.variables import Variables
 from pprint import pprint
 from cloudmesh.common.console import Console
 from cloudmesh.common.parameter import Parameter
